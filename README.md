@@ -2,7 +2,9 @@
 
 
 /----------------------- Sample Core PHP Rounting Project ----------------------------------/
-Folder Structure
+
+<b><u><i>Folder Structure</i></u></b>
+
 /assets
 	--css [ Storing CSS Files ]
 	--fonts [ Storing Fonts Files ]
