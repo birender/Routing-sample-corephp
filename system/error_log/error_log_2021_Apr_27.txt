@@ -1,0 +1,6 @@
+2021-Apr-27 23:30:48.298554 router.php (87): UNKNOWN >> message = include_once(views1/common/header.php): failed to open stream: No such file or directory
+2021-Apr-27 23:30:48.353188 router.php (87): UNKNOWN >> message = include_once(): Failed opening 'views1/common/header.php' for inclusion (include_path='.;D:\xampp\php\PEAR')
+2021-Apr-27 23:30:48.355999 router.php (87): UNKNOWN >> message = include_once(views1/userlist.php): failed to open stream: No such file or directory
+2021-Apr-27 23:30:48.357490 router.php (87): UNKNOWN >> message = include_once(): Failed opening 'views1/userlist.php' for inclusion (include_path='.;D:\xampp\php\PEAR')
+2021-Apr-27 23:30:48.359991 router.php (87): UNKNOWN >> message = include_once(views1/common/footer.php): failed to open stream: No such file or directory
+2021-Apr-27 23:30:48.362296 router.php (87): UNKNOWN >> message = include_once(): Failed opening 'views1/common/footer.php' for inclusion (include_path='.;D:\xampp\php\PEAR')

@@ -1,31 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-</head>
-<body>
-
 <h2>HTML Table</h2>
+<h3 id="msg"></h3>
 <br/>
 <h4>Filters : <?php if( !empty($data)) {foreach($data as $dte){ echo $dte.' ';}} ?></h4>
+<?php  set_csrf(); ?>
 <table>
-  <tr>
+  <tr> 
     <th>Company</th>
     <th>Contact</th>
     <th>Country</th>
@@ -44,7 +23,7 @@ tr:nth-child(even) {
     <td>Ernst Handel</td>
     <td>Roland Mendel</td>
     <td>Austria</td>
-  </tr>
+  </tr> 
   <tr>
     <td>Island Trading</td>
     <td>Helen Bennett</td>
@@ -61,6 +40,4 @@ tr:nth-child(even) {
     <td>Italy</td>
   </tr>
 </table>
-
-</body>
-</html>
+<script>includeJS("js/common.js?v=1");</script>

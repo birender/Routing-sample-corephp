@@ -35,6 +35,20 @@ switch($calling_controller){
 			break;
 		}
 	break;
+
+	case 'category':	
+		 
+		switch($calling_method)
+		{
+			case 'index':
+				get("users/index","index");
+			break;
+			
+			default:
+				get("/category/getcategory", "category/$calling_method",$calling_method);	
+			break;
+		}
+	break;
 	
 	default:
 		http_response_code(404);

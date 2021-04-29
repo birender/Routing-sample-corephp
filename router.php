@@ -4,7 +4,7 @@ function get($route, $path_to_include,$argument=''){
   if( $_SERVER['REQUEST_METHOD'] == 'GET' ){ route($route, $path_to_include,$argument); }  
 }
 function post($route, $path_to_include,$argument=''){
-  if( $_SERVER['REQUEST_METHOD'] == 'POST' ){ route($route, $path_to_include,argument); }    
+  if( $_SERVER['REQUEST_METHOD'] == 'POST' ){ route($route, $path_to_include,$argument); }    
 }
  
 function any($route, $path_to_include){ route($route, $path_to_include); }
@@ -28,8 +28,6 @@ function route($route, $path_to_include,$argument=''){
  
   $request_url = str_replace(ProjectFolder,"",$_SERVER['REQUEST_URI']) ;
   $request_url = $request_url;
-  
-   
    
   $parameters = [];
   $path = explode("/",$path_to_include);
@@ -73,16 +71,18 @@ function route($route, $path_to_include,$argument=''){
 
 function out($text){echo htmlspecialchars($text);}
 function set_csrf(){
-  $csrf_token = bin2hex(random_bytes(25));
+  $csrf_token = bin2hex(openssl_random_pseudo_bytes(30));
   $_SESSION['csrf'] = $csrf_token;
-  echo '<input type="hidden" name="csrf" value="'.$csrf_token.'">';
+  echo '<input type="hidden" id="csrf_token" name="csrf_token" value="'.$csrf_token.'">';
 }
 function is_csrf_valid(){
   if( ! isset($_SESSION['csrf']) || ! isset($_POST['csrf'])){ return false; }
   if( $_SESSION['csrf'] != $_POST['csrf']){ return false; }
   return true;
 }
-function render($location,$data=array()){
-	require_once("views/$location.php");
-	exit(0);
+function render($location,$data=array(),$page_meta = array()){
+	if(empty($page_meta)){
+		$page_meta = Config::$PAGE_META;
+	} 
+	include_once("views/$location.php");
 }
