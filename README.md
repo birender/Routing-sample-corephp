@@ -1,5 +1,7 @@
-@author email : bsrana@bamko.net
-/----------------------- Sample Core PHP Project ----------------------------------/
+@author email : birender.rana18@outlook.com
+
+
+/----------------------- Sample Core PHP Rounting Project ----------------------------------/
 Folder Structure
 /assets
 	--css [ Storing CSS Files ]
