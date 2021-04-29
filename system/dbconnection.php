@@ -9,7 +9,7 @@ class DBConfig {
     /**
      * @var HOST
      */
-    private $HOST = "10.16.70.70";
+    private $HOST = "localhost";
     /**
      * @var USERNAME
      */
@@ -17,7 +17,7 @@ class DBConfig {
     /**
      * @var PASSWORD
      */
-    private $PASSWORD = "123456789aa";
+    private $PASSWORD = "";
     /**
      * @var DATABASE
      */
