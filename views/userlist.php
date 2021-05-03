@@ -12,12 +12,12 @@
   <tr>
     <td>Alfreds Futterkiste</td>
     <td>Maria Anders</td>
-    <td>Germany</td>
+    <td><?php echo humanize('GERMANY');?></td>
   </tr>
   <tr>
     <td>Centro comercial Moctezuma</td>
     <td>Francisco Chang</td>
-    <td>Mexico</td>
+    <td><?php echo random_string();?></td>
   </tr>
   <tr>
     <td>Ernst Handel</td>

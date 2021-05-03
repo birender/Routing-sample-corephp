@@ -15,7 +15,7 @@ class Welcome extends Config {
 	}
 	
 	public function demo($data){ 
-		render('common/header',$data);
+		render('common/header',$data,array('title'=>'Routing'));
 		render('userlist',$data);
 		render('common/footer',$data);
 	}

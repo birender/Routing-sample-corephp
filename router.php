@@ -40,10 +40,14 @@ function route($route, $path_to_include,$argument=''){
 			spl_autoload_register(function ($controller) {
 				include 'controller/'.$controller . '.php';
 			});
-			$obj  = new $controller();
-			if( $argument !="" ){
-				$argument = explode("/",$argument);
-			} 
+			$obj  = new $controller(); 
+			$argument = array_values($argument);
+			
+			if( !is_array( $argument ) ){
+				if( $argument !="" ){
+					$argument = explode("/",$argument);
+				} 
+			}
 			
 			if( !empty( $route_parts ) ){
 				if( $route_parts[0] == "" && $route_parts[1] == $controller){
@@ -56,8 +60,7 @@ function route($route, $path_to_include,$argument=''){
 				$obj->$method($argument);
 			}
 	  }else{
-		  // Calling Default Controller Index Method
-		 
+		  // Calling Default Controller Index Method		 
 		  $controller 	= $calling_controller;
 		  $method		= $calling_method;
 		  spl_autoload_register(function ($controller) {
@@ -81,8 +84,9 @@ function is_csrf_valid(){
   return true;
 }
 function render($location,$data=array(),$page_meta = array()){
-	if(empty($page_meta)){
+	if(empty($page_meta)){  
 		$page_meta = Config::$PAGE_META;
 	} 
+	
 	include_once("views/$location.php");
 }

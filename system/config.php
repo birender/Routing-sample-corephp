@@ -1,7 +1,9 @@
 <?php
 error_reporting(E_ALL);
 ini_get('display_errors');
+
 require_once(__DIR__ . '/dbconnection.php');
+require_once(__DIR__ . '/blockIP.php'); // Block Specific IP
 
 define('ProjectFolder' , "/main-main");// Only for Local 
 define('DEFAULTCONTROLLER','welcome');
@@ -15,6 +17,9 @@ $protocal = ($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.1')?'http://':'https://';
 define('WWWROOT',$protocal.$_SERVER['HTTP_HOST'].ProjectFolder);
 define('ASSETS',$protocal.$_SERVER['HTTP_HOST'].ProjectFolder.'/assets/');
 define('CACHE',$protocal.$_SERVER['HTTP_HOST'].ProjectFolder.'/cache/');
+
+/* AUTOLOAD_HELPER 0=> No; AUTOLOAD_HELPER 1=> Yes */
+define('AUTOLOAD_HELPER',1);// Automatically Load All Helper File into the helper folder
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: PUT, GET, POST");
@@ -163,4 +168,4 @@ function error_handler($errno='E_USER_ERROR', $errstr, $errfile='error_log.txt',
                 unlink($file);
 
     return true;    // Don't execute PHP internal error handler
-}
+}/* End of Method */
