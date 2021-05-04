@@ -40,4 +40,17 @@
     <td>Italy</td>
   </tr>
 </table>
+ 
+<form name="form" method="post" action="">
+<label><strong>Enter Captcha:</strong></label><br />
+<input type="text" name="captcha" />
+<p><br />
+<img src="<?php echo WWWROOT; ?>/captcha/rand/<?php echo rand(); ?>" id='captcha_image'>
+</p>
+<p>Can't read the image?
+<a   href='javascript: refreshCaptcha();'>click here</a>
+to refresh</p>
+<input type="submit" name="submit" value="Submit">
+</form>
+
 <script>includeJS("js/common.js?v=1");</script>
