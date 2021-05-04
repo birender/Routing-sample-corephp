@@ -41,3 +41,10 @@ function includeJS(file,type='head') {
   script.defer = true;
   document.getElementsByTagName(type).item(0).appendChild(script);
 }/* End of Method */
+
+//Refresh Captcha
+
+function refreshCaptcha(){
+    var img = document.images['captcha_image'];
+    img.src = img.src.substring(WWWROOT+"captcha/rand/"+Math.random()*1000);
+}
