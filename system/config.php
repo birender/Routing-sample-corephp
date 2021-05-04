@@ -18,6 +18,8 @@ define('WWWROOT',$protocal.$_SERVER['HTTP_HOST'].ProjectFolder);
 define('ASSETS',$protocal.$_SERVER['HTTP_HOST'].ProjectFolder.'/assets/');
 define('CACHE',$protocal.$_SERVER['HTTP_HOST'].ProjectFolder.'/cache/');
 
+define('ASSETS_PATH',$_SERVER['DOCUMENT_ROOT'].ProjectFolder.'/assets/');
+
 /* AUTOLOAD_HELPER 0=> No; AUTOLOAD_HELPER 1=> Yes */
 define('AUTOLOAD_HELPER',1);// Automatically Load All Helper File into the helper folder
 
@@ -41,6 +43,7 @@ class Config{
 	public $ip;
 	public $browser;
     public static $PAGE_META = array();
+ 
 	
 	/**
      * Fetch IP and User Agent
@@ -49,6 +52,7 @@ class Config{
 		$this->ip = $_SERVER['REMOTE_ADDR'];
         $this->browser = $_SERVER ['HTTP_USER_AGENT'];
         Config::$PAGE_META['title'] = 'Sample PHP Rounting';
+ 
 	}/* End of Method */
 
     /**
@@ -106,7 +110,7 @@ class Config{
 	
 	 /**
 	  * @param mixed $modelName = array() // Dynamically Load Model
-	  * 
+	  * Example : $this->loadmodel(array('<Model file name without extention >'));
 	  * @return [type]
 	  */
 	 public function loadmodel($modelName = array()) {
@@ -117,11 +121,31 @@ class Config{
             if (file_exists("db/$name.php")) {
                 include_once("db/$name.php");
             } else {
-                echo "Invalid Model Name : $name";die;
+                echo "<span style='color:red;'>Invalid Model Name : $name </span>";
+				exit(0);
             }
         }
     }/* End of Method */
-
+	
+	/**
+	  * @param mixed $LibraryName = array() // Dynamically Load Library
+	  * Example : $this->loadlibrary(array('<library file name without extention >'));
+	  * @return [type]
+	  */ 
+	 public function loadlibrary($LibraryName = array()) {
+        if (empty($LibraryName)) {
+            return false;
+        } 
+        foreach ($LibraryName as $name) {
+            if (file_exists("library/$name.php")) {
+                include_once("library/$name.php");
+            } else {
+                echo "<span style='color:red;'>Invalid Library Name : $name </span>";
+				exit(0);
+            }
+        }
+    }/* End of Method */
+ 
 }/* End of Config Class */  
   
 //set_error_handler("error_handler");
