@@ -5,8 +5,13 @@ require_once(__DIR__.'/system/require.php');
  
 //load_library(); Include All Library
 //load_helper();  Include All Helper Method
-
+ 
 switch($calling_controller){
+
+	case 'captcha':
+		get('/captcha/rand','captcha/rand',$arg);
+		break;	
+
 	case 'welcome':
 		switch($calling_method)
 		{
