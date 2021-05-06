@@ -3,7 +3,7 @@
  * MysqliDb Class
  *
  * @category  Database Access
- * @package   MysqliDb
+ * @package   MysqliDb 
  * @author    Jeffery Way <jeffrey@jeffrey-way.com>
  * @author    Josh Campbell <jcampbell@ajillion.com>
  * @author    Alexander V. Butenko <a.butenka@gmail.com>
