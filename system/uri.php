@@ -22,4 +22,4 @@ if( $calling_method == ""){ $calling_method = 'index';}
 
 unset( $arg[0] );
 unset( $arg[1] );
-$argument = implode("/", array_values($arg));
+$argument = implode("/", array_values($arg)); 
