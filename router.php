@@ -83,10 +83,19 @@ function is_csrf_valid(){
   if( $_SESSION['csrf'] != $_POST['csrf']){ return false; }
   return true;
 }
-function render($location,$data=array(),$page_meta = array()){
-	if(empty($page_meta)){  
-		$page_meta = Config::$PAGE_META;
-	} 
-	
-	include_once("views/$location.php");
+
+function render($location = '', $data = array(), $page_meta = array(), $return_type = FALSE) {
+    if ($return_type == TRUE) {
+        ob_start();
+        include_once("views/$location.php");
+        $content = ob_get_contents();
+        @ob_end_clean();
+        ob_end_flush();
+        return $content;
+    } else { 
+        if( $location == '404'){
+           header("HTTP/1.1 404 Not Found");
+        }
+        include_once("views/$location.php");
+    }
 }
