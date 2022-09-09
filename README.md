@@ -29,7 +29,9 @@
 /library [ Storing User Library Created By User ]
 
 /system [ Storing Project Configuration Files
-	--error_log [ Storing Project Error Log [ To Enabled Error Log // Uncomment set_error_handler("error_handler"); on Config.php
+	--error_log [ Storing Project Error Log [ To Enabled Error Log // Uncomment set_error_handler("error_handler");
+	
+	on Config.php
 	Files : 
 	-config.php [ Project Configuration Files ]
 	-dbconnection.php [ Create Database Connection ]
