@@ -154,3 +154,20 @@ if ( ! function_exists('random_string'))
 		}
 	}
 }
+
+/*************************************************** Anchor ************************************************************************************************/
+
+function anchor($ahref = array())  
+{
+    $href = "<a";
+	if(!empty($ahref) && isset($ahref['link'])){
+		$title  = isset($ahref['title'])?$ahref['title']:'';
+		$link   = isset($ahref['link'])?$ahref['link']:'';
+		$target = isset($ahref['target'])?$ahref['target']:'';
+		$text   = isset($ahref['text'])?$ahref['text']:$ahref['link'];
+		$class  = isset($ahref['class'])?$ahref['class']:'';
+		
+		$href .=" href='".$link."' title='".$title."' target='".$target."' class='".$class."'>".$text."</a>";
+	}		
+    return $href;
+}
